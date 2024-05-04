@@ -87,7 +87,7 @@ function showResult() {
     .then(data => {
         console.log('Dados enviados com sucesso:', data);
         // Redirecionamento para index.html
-        window.location.href = 'index.html';
+        window.location.href = 'perguntas.html';
     })
     .catch(error => {
         console.error('Erro:', error);
@@ -98,7 +98,7 @@ function showResult() {
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
     // Redirecionamento para index.html
-    window.location.href = 'index.html';
+    window.location.href = 'perguntas.html';
     renderQuestions();
     showResult();
 });
