@@ -62,6 +62,45 @@ function showResult() {
     const dogPercentage = (dogVotes / totalVotes) * 100;
     const catPercentage = (catVotes / totalVotes) * 100;
     document.getElementById('result').innerHTML = `Você é um(a):<br> Cachorro: ${dogPercentage.toFixed(2)}%<br> Gato: ${catPercentage.toFixed(2)}%`;
+
+    // Aqui você pode enviar os dados para o servidor e armazená-los no banco de dados
+    const age = document.getElementById('age').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const school = document.querySelector('input[name="school"]:checked').value;
+    const result = (dogPercentage > catPercentage) ? 'cachorro' : 'gato';
+
+    // Aqui você pode enviar os dados para o servidor
+    // Exemplo de como enviar os dados com Fetch API
+    fetch('url_do_seu_servidor/salvar_dados', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ age, gender, school, result })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar dados para o servidor');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Dados enviados com sucesso:', data);
+        // Redirecionamento para index.html
+        window.location.href = 'index.html';
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
 }
+
+// Adiciona o ouvinte de evento para o formulário de login
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+    // Redirecionamento para index.html
+    window.location.href = 'index.html';
+    renderQuestions();
+    showResult();
+});
 
 renderQuestions();
