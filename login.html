@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles.css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Informações do Aluno</h2>
+        <form id="loginForm">
+            <div class="lg">
+                <div class="form-group">
+                    <label for="age">Idade:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gênero:</label>
+                    <label><input type="radio" name="gender" value="masculino" required> Masculino</label>
+                    <label><input type="radio" name="gender" value="feminino"> Feminino</label>
+                </div>
+                <div class="form-group">
+                    <label for="school">Escola:</label>
+                    <label><input type="radio" name="school" value="publica" required> Pública</label>
+                    <label><input type="radio" name="school" value="privada"> Privada</label>
+                </div>
+                <button type="submit" id="entrarButton">Entrar</button>
+            </div>
+        </form>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
